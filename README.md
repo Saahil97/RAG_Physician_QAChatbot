@@ -1,5 +1,4 @@
-
-# RAG Model for Pharmacy and Healthcare
+# Physician Chatbot using RAG Model for Pharmacy and Healthcare
 
 This repository contains a Retrieval-Augmented Generation (RAG) model designed to answer questions related to diseases, health issues, and medications. The model uses the **Zephyr-7B** LLM combined with document retrieval from a pharmacy-related dataset. It provides responses with medication recommendations or useful steps based on the provided question.
 
