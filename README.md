@@ -21,23 +21,28 @@ This project leverages a **Retrieval-Augmented Generation (RAG)** approach to pr
 - **LLM Response Generation**: The Zephyr-7B model generates responses using retrieved documents as context.
 - **Streamlit UI**: A simple web interface for querying the model and getting responses.
 - **ChromaDB for Document Storage**: Efficient and scalable document retrieval.
-- **Pharmacy-related Dataset**: Contains medical and pharmacy-related documents for answering health queries.
+- **Medical Information Retrieval**: The chatbot provides information based on symptoms, diseases, and medications stored in a medical dataset.
+- **Conversational Memory**: The chatbot remembers prior interactions with the user, making the conversation more natural and personalized.
+- **Follow-Up Questions**: The chatbot suggests relevant follow-up questions to guide users through a diagnostic process, just like a real physician.
+- **Non-Medical Query Filtering**: The chatbot is designed to only respond to health-related queries. Non-medical queries will receive a response saying "This question is beyond my scope."
+- **Empathetic Responses**: The chatbot provides empathetic and supportive responses, ensuring users feel understood and guided appropriately.
 
 ## Stack Used
 
 - **LLM**: [Zephyr-7B](https://huggingface.co/HuggingFaceH4/zephyr-7b-beta)
-- **Retrieval Chain**: LangChain's `RetrievalQA` for retrieving relevant documents and answering user queries.
-- **Vector Store**: ChromaDB for storing and retrieving document vectors.
-- **Embeddings**: Hugging Face's `'sentence-transformers/all-MiniLM-L6-v2'` for generating document embeddings.
-- **Deployment**: The app is deployed using Streamlit for a simple and interactive user interface.
+- **Streamlit**: Web application framework for the frontend.
+- **LangChain**: For chaining together models and data retrieval.
+- **HuggingFace**: Used for model-based queries with the HuggingFace API.
+- **Chroma**: Vector store for storing and retrieving document embeddings.
+- **Pandas**: For handling and processing medical dataset CSV files.
 
 ## Installation
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/Saahil97/RetrievalAugmentedGeneration_QAChatbot.git
-cd RetrievalAugmentedGeneration_QAChatbot
+git clone https://github.com/Saahil97/RAG_Physician_QAChatbot.git
+cd RAG_Physician_QAChatbot
 ```
 
 ### 2. Install Dependencies
@@ -61,8 +66,6 @@ Get your API key from Hugging Face and set it as an environment variable:
 ```bash
 export HF_API_KEY="your_huggingface_api_key"
 ```
-
-Alternatively, you can hardcode the API key in the code for local development.
 
 ## Usage
 
@@ -89,7 +92,7 @@ Alternatively, you can hardcode the API key in the code for local development.
 
 The dataset used is a collection of pharmacy and healthcare-related documents. It includes information about diseases, treatments, medications, and medical conditions.
 
-- **Format**: The documents are stored as PDF files and indexed using ChromaDB.
+- **Format**: The documents are stored in .csv format, indexed using ChromaDB.
 - **Embedding**: The dataset is embedded using Hugging Face’s `'sentence-transformers/all-MiniLM-L6-v2'`.
 
 You can modify the dataset by adding or removing documents in the `db` directory and re-indexing them using ChromaDB.
